@@ -18,6 +18,15 @@ class Student(Person):
     def __str__(self):
         return f"Student ID: {self.person_id}, Name: {self.name}, Major: {self.major}"
 
+class Course:
+    def __init__(self, code, name, seats):
+        self.code = code
+        self.name = name
+        self.seats = seats
+
+    def __str__(self):
+        return f"Course: {self.code} - {self.name} - Seats: {self.seats}"
+
 
 person = Person(100, "Ahmad")
 student = Student(101, "Lina", "Computer Science")
@@ -27,3 +36,9 @@ print(student.describe())
 
 
 print(student)
+
+course1 = Course("CS101", "Introduction to Programming", 2)
+course2 = Course("DB101", "Introduction to Databases", 3)
+
+print(course1)
+print(course2)
