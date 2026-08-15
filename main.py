@@ -8,13 +8,14 @@ class Person:
 
 
 class Student(Person):
-    # Student IS-A Person because a Student is a type of Person.
-    # Inheritance allows Student to reuse Person's common data and behavior.
     def __init__(self, person_id, name, major):
         super().__init__(person_id, name)
         self.major = major
 
     def describe(self):
+        return f"Student ID: {self.person_id}, Name: {self.name}, Major: {self.major}"
+
+    def __str__(self):
         return f"Student ID: {self.person_id}, Name: {self.name}, Major: {self.major}"
 
 
@@ -23,3 +24,6 @@ student = Student(101, "Lina", "Computer Science")
 
 print(person.describe())
 print(student.describe())
+
+
+print(student)
