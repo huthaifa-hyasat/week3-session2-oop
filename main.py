@@ -18,6 +18,7 @@ class Student(Person):
     def __str__(self):
         return f"Student ID: {self.person_id}, Name: {self.name}, Major: {self.major}"
 
+
 class Course:
     def __init__(self, code, name, seats):
         self.code = code
@@ -26,6 +27,8 @@ class Course:
 
     def __str__(self):
         return f"Course: {self.code} - {self.name} - Seats: {self.seats}"
+
+
 class Enrollment:
     def __init__(self, student, course, grade):
         self.student = student
@@ -42,19 +45,27 @@ class Enrollment:
             raise ValueError("Grade must be between 0 and 100.")
         self.__grade = value
 
+
+# 1 tests
 person = Person(100, "Ahmad")
 student = Student(101, "Lina", "Computer Science")
 
 print(person.describe())
 print(student.describe())
+
+#  2 test
 print(student)
 
+
+# 3 tests
 course1 = Course("CS101", "Introduction to Programming", 2)
 course2 = Course("DB101", "Introduction to Databases", 3)
 print(course1)
 print(course2)
 
 
+# 4 & 5 test
 enrollment = Enrollment(student, course1, 85)
+print(enrollment.student.name)
+print(enrollment.course.code)
 print(enrollment.grade)
-enrollment.grade = 150
