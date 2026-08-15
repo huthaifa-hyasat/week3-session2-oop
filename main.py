@@ -116,3 +116,24 @@ registry.enroll_student(student, course1, 85)
 registry.show_students()
 registry.show_courses()
 registry.show_enrollments()
+
+# Part 7 - Error Handling
+
+registry = Registry()
+
+registry.add_student(person)
+registry.add_student(student)
+
+registry.add_course(course1)
+registry.add_course(course2)
+
+try:
+    grade_input = input("Enter grade: ")
+    grade = int(grade_input)
+
+    registry.enroll_student(student, course1, grade)
+
+    print("Grade accepted and enrollment created.")
+
+except ValueError as error:
+    print(f"Error: {error}")
