@@ -46,6 +46,42 @@ class Enrollment:
         self.__grade = value
 
 
+class Registry:
+    def __init__(self):
+        self.students = []
+        self.courses = []
+        self.enrollments = []
+
+    def add_student(self, student):
+        self.students.append(student)
+
+    def add_course(self, course):
+        self.courses.append(course)
+
+    def enroll_student(self, student, course, grade):
+        enrollment = Enrollment(student, course, grade)
+        self.enrollments.append(enrollment)
+
+    def show_students(self):
+        print("\n--- Students ---")
+        for student in self.students:
+            print(student)
+
+    def show_courses(self):
+        print("\n--- Courses ---")
+        for course in self.courses:
+            print(course)
+
+    def show_enrollments(self):
+        print("\n--- Enrollments ---")
+        for enrollment in self.enrollments:
+            print(
+                f"{enrollment.student.name} -> "
+                f"{enrollment.course.code} -> "
+                f"Grade: {enrollment.grade}"
+            )
+
+            
 # 1 tests
 person = Person(100, "Ahmad")
 student = Student(101, "Lina", "Computer Science")
@@ -69,3 +105,14 @@ enrollment = Enrollment(student, course1, 85)
 print(enrollment.student.name)
 print(enrollment.course.code)
 print(enrollment.grade)
+
+#6 test
+registry = Registry()
+registry.add_student(person)
+registry.add_student(student)
+registry.add_course(course1)
+registry.add_course(course2)
+registry.enroll_student(student, course1, 85)
+registry.show_students()
+registry.show_courses()
+registry.show_enrollments()
